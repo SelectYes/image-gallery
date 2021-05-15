@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Navbar from "../navbar/navbar.component";
+import Carousel from "../carousel/carousel.component";
 
 import "./gallery.styles.scss";
 
 const ACCESS_KEY = "4Fdn_ljDLhbFXnrTgLIYrJhY4svUR-Zq4Gu9gvIXav4";
-const BASE_URL = `https://api.unsplash.com/topics/wallpapers/photos?client_id=${ACCESS_KEY}`;
+const BASE_URL = `https://api.unsplash.com/topics/<<topic>>/photos?client_id=${ACCESS_KEY}`;
 const TOPICS_URL = `https://api.unsplash.com/topics?client_id=${ACCESS_KEY}`;
 
 export class Gallery extends Component {
@@ -14,32 +15,47 @@ export class Gallery extends Component {
     super(props);
 
     this.state = {
-      data: [],
+      topicData: [],
       topicArray: [],
     };
   }
 
   async componentDidMount() {
-    let response = await axios.get(BASE_URL);
-    const imageData = response.data;
-    this.setState({ data: imageData });
-
     //get list of topics from API and save to state
     let topicRes = await axios.get(TOPICS_URL);
     const topicData = topicRes.data;
     const topicList = topicData.map((topic) => {
       return topic.slug;
     });
-
     this.setState({ topicArray: topicList });
+
+    //testing response
+    let response = await axios.get(
+      `https://api.unsplash.com/topics/nature/photos?client_id=${ACCESS_KEY}`
+    );
+
+    const responseData = response.data;
+    this.setState({ topicData: responseData }, () =>
+      console.log(this.state.topicData)
+    );
   }
 
+  // async selectTopic(topic) {
+  //   let response = await axios.get(
+  //     `https://api.unsplash.com/topics/${topic}/photos?client_id=${ACCESS_KEY}`
+  //   );
+  //   // const imageData = response.data;
+  //   this.setState({ topicData: response }, () =>
+  //     console.log(this.state.topicData)
+  //   );
+  // }
+
   render() {
-    const { topicArray } = this.state;
+    const { topicArray, topicData } = this.state;
     return (
-      <div>
+      <div className="gallery-container">
         <Navbar topicArray={topicArray} />
-        {/* <img alt="plant" src={data?.length > 0 ? data[0].urls.regular : ""} /> */}
+        <Carousel topicDataArray={topicData} />
       </div>
     );
   }
