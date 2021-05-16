@@ -7,7 +7,7 @@ import Carousel from "../carousel/carousel.component";
 import "./gallery.styles.scss";
 
 const ACCESS_KEY = "4Fdn_ljDLhbFXnrTgLIYrJhY4svUR-Zq4Gu9gvIXav4";
-const BASE_URL = `https://api.unsplash.com/topics/<<topic>>/photos?client_id=${ACCESS_KEY}`;
+// const BASE_URL = `https://api.unsplash.com/topics/<<topic>>/photos?client_id=${ACCESS_KEY}`;
 const TOPICS_URL = `https://api.unsplash.com/topics?client_id=${ACCESS_KEY}`;
 
 export class Gallery extends Component {
@@ -17,7 +17,9 @@ export class Gallery extends Component {
     this.state = {
       topicData: [],
       topicArray: [],
+      currentTopic: "",
     };
+    this.selectTopic = this.selectTopic.bind(this);
   }
 
   async componentDidMount() {
@@ -29,32 +31,29 @@ export class Gallery extends Component {
     });
     this.setState({ topicArray: topicList });
 
-    //testing response
+    //displays images from first topic in navbar
+    this.selectTopic(this.state.topicArray[0]);
+  }
+
+  async selectTopic(topic) {
+    // get array of URLs for images related to topic and set currentTopic
     let response = await axios.get(
-      `https://api.unsplash.com/topics/nature/photos?client_id=${ACCESS_KEY}`
+      `https://api.unsplash.com/topics/${topic}/photos?client_id=${ACCESS_KEY}`
     );
 
     const responseData = response.data;
-    this.setState({ topicData: responseData }, () =>
-      console.log(this.state.topicData)
-    );
+    this.setState({ topicData: responseData, currentTopic: topic });
   }
 
-  // async selectTopic(topic) {
-  //   let response = await axios.get(
-  //     `https://api.unsplash.com/topics/${topic}/photos?client_id=${ACCESS_KEY}`
-  //   );
-  //   // const imageData = response.data;
-  //   this.setState({ topicData: response }, () =>
-  //     console.log(this.state.topicData)
-  //   );
-  // }
-
   render() {
-    const { topicArray, topicData } = this.state;
+    const { topicArray, topicData, currentTopic } = this.state;
     return (
       <div className="gallery-container">
-        <Navbar topicArray={topicArray} />
+        <Navbar
+          handleClick={this.selectTopic}
+          topicArray={topicArray}
+          currentTopic={currentTopic}
+        />
         <Carousel topicDataArray={topicData} />
       </div>
     );
