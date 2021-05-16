@@ -18,8 +18,10 @@ export class Gallery extends Component {
       topicData: [],
       topicArray: [],
       currentTopic: "",
+      isMenuActive: true,
     };
     this.selectTopic = this.selectTopic.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
 
   async componentDidMount() {
@@ -45,16 +47,29 @@ export class Gallery extends Component {
     this.setState({ topicData: responseData, currentTopic: topic });
   }
 
+  toggleMenu() {
+    if (this.state.isMenuActive) {
+      this.setState({ isMenuActive: false });
+    } else {
+      this.setState({ isMenuActive: true });
+    }
+  }
+
   render() {
-    const { topicArray, topicData, currentTopic } = this.state;
+    const { topicArray, topicData, currentTopic, isMenuActive } = this.state;
     return (
       <div className="gallery-container">
         <Navbar
           handleClick={this.selectTopic}
           topicArray={topicArray}
           currentTopic={currentTopic}
+          isMenuActive={isMenuActive}
         />
-        <Carousel topicDataArray={topicData} />
+        <Carousel
+          topicDataArray={topicData}
+          isMenuActive={isMenuActive}
+          toggleMenu={this.toggleMenu}
+        />
       </div>
     );
   }

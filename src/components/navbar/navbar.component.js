@@ -6,8 +6,13 @@ import NavItem from "../nav-item/nav-item.component";
 
 import "./navbar.styles.scss";
 
-export default function Navbar({ topicArray, handleClick, currentTopic }) {
-  const [active, setActive] = useState(false);
+export default function Navbar({
+  topicArray,
+  handleClick,
+  currentTopic,
+  isMenuActive,
+}) {
+  const [numArrowClicks, setNumArrowClicks] = useState(0);
 
   const navItems = topicArray.map((item) => {
     return (
@@ -19,5 +24,9 @@ export default function Navbar({ topicArray, handleClick, currentTopic }) {
       />
     );
   });
-  return <div className="nav-container">{navItems}</div>;
+  return (
+    <div className={`nav-container ${!isMenuActive ? "menu-inactive" : ""}`}>
+      {navItems}
+    </div>
+  );
 }

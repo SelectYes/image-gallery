@@ -11,8 +11,43 @@ export class Carousel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      clickCount: 0,
     };
+    this.incrementCount = this.incrementCount.bind(this);
+    this.decrementCount = this.decrementCount.bind(this);
+
+    // slick buttons
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+  }
+  // slick buttons
+  next() {
+    this.slider.slickNext();
+  }
+  previous() {
+    this.slider.slickPrev();
+  }
+
+  incrementCount() {
+    this.setState(
+      (st) => ({ clickCount: st.clickCount + 1 }),
+      () => {
+        if (this.state.clickCount > 0 && this.props.isMenuActive) {
+          this.props.toggleMenu();
+        }
+      }
+    );
+  }
+
+  decrementCount() {
+    this.setState(
+      (st) => ({ clickCount: st.clickCount - 1 }),
+      () => {
+        if (this.state.clickCount === 0) {
+          this.props.toggleMenu();
+        }
+      }
+    );
   }
 
   render() {
@@ -23,9 +58,11 @@ export class Carousel extends Component {
       speed: 300,
       slidesToShow: 3,
       slidesToScroll: 1,
+      arrows: false,
     };
 
-    const { topicDataArray } = this.props;
+    const { topicDataArray, isMenuActive, toggleMenu } = this.props;
+
     const images = topicDataArray.map((image) => {
       return (
         <CarouselImage
@@ -38,8 +75,27 @@ export class Carousel extends Component {
     console.log(topicDataArray);
     return (
       <div className="carousel-container">
-        <Slider {...settings}>{images}</Slider>
-        {/* {images} */}
+        <button
+          className={`button-previous ${!isMenuActive ? "button-active" : ""}`}
+          onClick={() => {
+            this.previous();
+            this.decrementCount();
+          }}
+        >
+          {"<"}
+        </button>
+        <button
+          className="button-next"
+          onClick={() => {
+            this.next();
+            this.incrementCount();
+          }}
+        >
+          {">"}
+        </button>
+        <Slider ref={(c) => (this.slider = c)} {...settings}>
+          {images}
+        </Slider>
       </div>
     );
   }

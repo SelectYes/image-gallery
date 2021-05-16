@@ -1,12 +1,14 @@
 .image-container {
-  //   width: 400px;
-  // max-height: 400px;
-  // padding: 20px;
+  flex: 1;
+  height: 50vh;
+  overflow: hidden;
+  // padding: 5px;
 }
 
 img {
-  border: 5px solid white;
+  border: 20px solid white;
   object-fit: cover;
-  height: 300px;
-  width: 400px;
+  height: 100%;
+  width: 100%;
+  // padding: 5px;
 }
