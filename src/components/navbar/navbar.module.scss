@@ -1,6 +1,8 @@
+@import "../../scss/variables.scss";
+
 .navContainer {
   flex: 0 0 300px;
-  background-color: rgb(131, 131, 131);
+  background-color: $colour-primary;
   transition: all 0.3s ease-in;
   position: relative;
   left: -5px;

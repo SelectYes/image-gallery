@@ -1,28 +1,27 @@
+@import "../../scss/variables.scss";
+
 .itemWrapper {
   margin: 1px 1px 1px 0;
   display: flex;
 }
 
 .itemSpacing {
-  background-color: rgba(218, 218, 218, 0);
+  background-color: $colour-primary-light-trans;
   width: 5px;
   height: 40px;
   position: relative;
   top: 0;
   left: 300px;
   z-index: 50;
-  // transition: all 0.3s;
 }
 
 .itemSpacingActive {
   position: relative;
   top: 0;
   left: 310px;
-  // background-color: orange;
   animation-name: shift;
   animation-duration: 0.3s;
   animation-fill-mode: forwards;
-  // transition: all 0.3s;
 }
 
 .itemContainer {
@@ -32,45 +31,44 @@
   letter-spacing: 0.4px;
   height: 40px;
   width: 315px;
-  background-color: rgb(218, 218, 218);
+  background-color: $colour-primary-light;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(131, 131, 131);
+  color: $colour-primary;
 
   &:hover {
     cursor: pointer;
-    color: white;
+    color: $colour-secondary;
   }
 }
 
 .active {
   font-family: "Roboto", sans-serif;
-  background-color: rgb(131, 131, 131);
-  color: white;
+  background-color: $colour-primary;
+  color: $colour-secondary;
   transition: all 0.3s ease-in;
   animation-name: fade;
   animation-duration: 0.2s;
   animation-fill-mode: forwards;
-  // border-left: 5px solid orange;
 }
 
 @keyframes shift {
   from {
     transform: translateX(0px);
-    background-color: rgba(255, 166, 0, 0);
+    background-color: $colour-primary-light-trans;
   }
   to {
     transform: translateX(-305px);
-    background-color: orange;
+    background-color: $colour-orange;
   }
 }
 
 @keyframes fade {
   from {
-    background-color: rgb(218, 218, 218);
+    background-color: $colour-primary-light;
   }
   to {
-    background-color: rgb(131, 131, 131);
+    background-color: $colour-primary;
   }
 }

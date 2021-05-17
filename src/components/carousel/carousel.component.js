@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FaCaretLeft, FaCaretRight, IconContext } from "react-icons/fa";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -33,7 +33,6 @@ export class Carousel extends Component {
   }
 
   componentDidMount() {
-    // set keypress event handlers
     document.addEventListener("keydown", this.handleKeyPress);
   }
 
@@ -80,7 +79,7 @@ export class Carousel extends Component {
       arrows: false,
     };
 
-    const { topicDataArray, isMenuActive, toggleMenu } = this.props;
+    const { topicDataArray, isMenuActive } = this.props;
 
     const images = topicDataArray.map((image) => {
       return (

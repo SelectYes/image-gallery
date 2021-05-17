@@ -1,12 +1,19 @@
+@import "../../scss/variables.scss";
+
 .imageContainer {
   flex: 1;
   height: 50vh;
   overflow: hidden;
+  padding: 10px;
 }
 
 .image {
-  border: 20px solid white;
+  outline: 20px solid $colour-secondary;
   object-fit: cover;
   height: 100%;
   width: 100%;
+
+  &:hover {
+    outline: 10px solid $colour-orange;
+  }
 }

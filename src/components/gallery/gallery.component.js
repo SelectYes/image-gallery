@@ -7,7 +7,6 @@ import Carousel from "../carousel/carousel.component";
 import styles from "./gallery.module.scss";
 
 const ACCESS_KEY = "4Fdn_ljDLhbFXnrTgLIYrJhY4svUR-Zq4Gu9gvIXav4";
-// const BASE_URL = `https://api.unsplash.com/topics/<<topic>>/photos?client_id=${ACCESS_KEY}`;
 const TOPICS_URL = `https://api.unsplash.com/topics?client_id=${ACCESS_KEY}`;
 
 export class Gallery extends Component {
