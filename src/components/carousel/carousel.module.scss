@@ -7,7 +7,7 @@
 
 .buttonPrevious {
   display: none;
-  background-color: $colour-primary-light-trans-half;
+  background-color: $colour-primary-trans-half;
   border: none;
   color: $colour-secondary;
   text-align: center;
@@ -21,13 +21,13 @@
   z-index: 20;
 
   &:hover {
-    background-color: $colour-primary-light;
+    background-color: $colour-primary;
     cursor: pointer;
   }
 }
 
 .buttonNext {
-  background-color: $colour-primary-light-trans-half;
+  background-color: $colour-primary-trans-half;
   border: none;
   color: white;
   text-align: center;
@@ -41,14 +41,14 @@
   z-index: 20;
 
   &:hover {
-    background-color: $colour-primary-light;
+    background-color: $colour-primary;
     cursor: pointer;
   }
 }
 
 .arrowIcon {
   font-size: 50px;
-  color: $colour-secondary;
+  color: $colour-secondary-trans-half;
   display: flex;
   align-items: center;
   justify-content: center;
