@@ -1,9 +1,9 @@
-.item-wrapper {
+.itemWrapper {
   margin: 1px 1px 1px 0;
   display: flex;
 }
 
-.item-spacing {
+.itemSpacing {
   background-color: rgba(218, 218, 218, 0);
   width: 5px;
   height: 40px;
@@ -14,7 +14,7 @@
   // transition: all 0.3s;
 }
 
-.item-spacing-active {
+.itemSpacingActive {
   position: relative;
   top: 0;
   left: 310px;
@@ -25,7 +25,7 @@
   // transition: all 0.3s;
 }
 
-.item-container {
+.itemContainer {
   position: relative;
   left: 0;
   font-family: "Nunito", sans-serif;
@@ -40,6 +40,7 @@
 
   &:hover {
     cursor: pointer;
+    color: white;
   }
 }
 

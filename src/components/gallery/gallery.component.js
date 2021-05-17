@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "../navbar/navbar.component";
 import Carousel from "../carousel/carousel.component";
 
-import "./gallery.styles.scss";
+import styles from "./gallery.module.scss";
 
 const ACCESS_KEY = "4Fdn_ljDLhbFXnrTgLIYrJhY4svUR-Zq4Gu9gvIXav4";
 // const BASE_URL = `https://api.unsplash.com/topics/<<topic>>/photos?client_id=${ACCESS_KEY}`;
@@ -58,7 +58,7 @@ export class Gallery extends Component {
   render() {
     const { topicArray, topicData, currentTopic, isMenuActive } = this.state;
     return (
-      <div className="gallery-container">
+      <div className={styles.galleryContainer}>
         <Navbar
           handleClick={this.selectTopic}
           topicArray={topicArray}

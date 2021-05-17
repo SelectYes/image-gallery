@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import NavItem from "../nav-item/nav-item.component";
 
-import "./navbar.styles.scss";
+import styles from "./navbar.module.scss";
 
 export default function Navbar({
   topicArray,
@@ -25,7 +25,11 @@ export default function Navbar({
     );
   });
   return (
-    <div className={`nav-container ${!isMenuActive ? "menu-inactive" : ""}`}>
+    <div
+      className={`${styles.navContainer} ${
+        !isMenuActive ? styles.menuInactive : ""
+      }`}
+    >
       {navItems}
     </div>
   );

@@ -1,18 +1,20 @@
 import React from "react";
-import "./nav-item.styles.scss";
+import styles from "./nav-item.module.scss";
 import capitalise from "../../utils";
 
 export default function NavItem({ topic, handleClick, currentTopic }) {
   return (
-    <div className="item-wrapper">
+    <div className={styles.itemWrapper}>
       <div
-        className={`item-spacing ${
-          currentTopic === topic ? "item-spacing-active" : ""
+        className={`${styles.itemSpacing} ${
+          currentTopic === topic ? styles.itemSpacingActive : ""
         }`}
       ></div>
       <div
         onClick={() => handleClick(topic)}
-        className={`item-container ${currentTopic === topic ? "active" : ""}`}
+        className={`${styles.itemContainer} ${
+          currentTopic === topic ? styles.active : ""
+        }`}
       >
         <h3>{capitalise(topic)}</h3>
       </div>

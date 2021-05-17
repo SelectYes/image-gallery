@@ -1,14 +1,12 @@
-.image-container {
+.imageContainer {
   flex: 1;
   height: 50vh;
   overflow: hidden;
-  // padding: 5px;
 }
 
-img {
+.image {
   border: 20px solid white;
   object-fit: cover;
   height: 100%;
   width: 100%;
-  // padding: 5px;
 }

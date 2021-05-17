@@ -1,4 +1,4 @@
-.nav-container {
+.navContainer {
   flex: 0 0 300px;
   background-color: rgb(131, 131, 131);
   transition: all 0.3s ease-in;
@@ -6,7 +6,7 @@
   left: -5px;
 }
 
-.menu-inactive {
+.menuInactive {
   position: absolute;
   left: -350px;
 }

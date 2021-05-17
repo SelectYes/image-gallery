@@ -1,16 +1,9 @@
-.carousel-container {
+.carouselContainer {
   flex: 1;
   width: 100vw;
-  // margin-left: 28px;
 }
 
-// .carousel-active {
-//   animation-name: shift;
-//   animation-duration: 0.3s;
-//   animation-fill-mode: forwards;
-// }
-
-.button-previous {
+.buttonPrevious {
   display: none;
   background-color: rgba(131, 131, 131, 0.5);
   border: none;
@@ -27,10 +20,11 @@
 
   &:hover {
     background-color: rgba(131, 131, 131, 0.904);
+    cursor: pointer;
   }
 }
 
-.button-next {
+.buttonNext {
   background-color: rgba(131, 131, 131, 0.5);
   border: none;
   color: white;
@@ -46,18 +40,18 @@
 
   &:hover {
     background-color: rgba(131, 131, 131, 0.904);
+    cursor: pointer;
   }
 }
 
-.button-active {
-  display: block;
+.arrowIcon {
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.801);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-// @keyframes shift {
-//   from {
-//     transform: translateX(0px);
-//   }
-//   to {
-//     transform: translateX(-50px);
-//   }
-// }
+.buttonActive {
+  display: block;
+}

@@ -1,10 +1,10 @@
 import React from "react";
-import "./carousel-image.styles.scss";
+import styles from "./carousel-image.module.scss";
 
 export default function CarouselImage({ imageUrl, altDescription }) {
   return (
-    <div className="image-container">
-      <img src={imageUrl} alt={altDescription} />
+    <div className={styles.imageContainer}>
+      <img className={styles.image} src={imageUrl} alt={altDescription} />
     </div>
   );
 }

@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import { FaCaretLeft, FaCaretRight, IconContext } from "react-icons/fa";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import CarouselImage from "../carousel-image/carousel-image.component";
 import Slider from "react-slick";
 
-import "./carousel.styles.scss";
+import styles from "./carousel.module.scss";
 
 export class Carousel extends Component {
   constructor(props) {
@@ -75,27 +77,33 @@ export class Carousel extends Component {
     console.log(topicDataArray);
     return (
       <div
-        className={`carousel-container ${
-          !isMenuActive ? "carousel-active" : ""
+        className={`${styles.carouselContainer} ${
+          !isMenuActive ? styles.carouselActive : ""
         }`}
       >
         <button
-          className={`button-previous ${!isMenuActive ? "button-active" : ""}`}
+          className={`${styles.buttonPrevious} ${
+            !isMenuActive ? styles.buttonActive : ""
+          }`}
           onClick={() => {
             this.previous();
             this.decrementCount();
           }}
         >
-          {"<"}
+          <div className={styles.arrowIcon}>
+            <FaCaretLeft />
+          </div>
         </button>
         <button
-          className="button-next"
+          className={styles.buttonNext}
           onClick={() => {
             this.next();
             this.incrementCount();
           }}
         >
-          {">"}
+          <div className={styles.arrowIcon}>
+            <FaCaretRight />
+          </div>
         </button>
         <Slider ref={(c) => (this.slider = c)} {...settings}>
           {images}
