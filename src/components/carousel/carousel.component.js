@@ -18,6 +18,8 @@ export class Carousel extends Component {
     this.incrementCount = this.incrementCount.bind(this);
     this.decrementCount = this.decrementCount.bind(this);
 
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+
     // slick buttons
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
@@ -28,6 +30,11 @@ export class Carousel extends Component {
   }
   previous() {
     this.slider.slickPrev();
+  }
+
+  componentDidMount() {
+    // set keypress event handlers
+    document.addEventListener("keydown", this.handleKeyPress);
   }
 
   incrementCount() {
@@ -50,6 +57,16 @@ export class Carousel extends Component {
         }
       }
     );
+  }
+
+  handleKeyPress(event) {
+    if (event.keyCode === 39) {
+      this.next();
+      this.incrementCount();
+    } else if (event.keyCode === 37 && this.state.clickCount > 0) {
+      this.previous();
+      this.decrementCount();
+    }
   }
 
   render() {
