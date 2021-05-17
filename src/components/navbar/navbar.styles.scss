@@ -1,10 +1,12 @@
 .nav-container {
   flex: 0 0 300px;
   background-color: rgb(131, 131, 131);
-  transition: all 0.5s ease-in;
+  transition: all 0.3s ease-in;
+  position: relative;
+  left: -5px;
 }
 
 .menu-inactive {
   position: absolute;
-  left: -300px;
+  left: -350px;
 }

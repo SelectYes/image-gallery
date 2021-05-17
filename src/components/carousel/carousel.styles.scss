@@ -1,44 +1,63 @@
 .carousel-container {
   flex: 1;
-  width: 100%;
-  margin-left: 28px;
+  width: 100vw;
+  // margin-left: 28px;
 }
+
+// .carousel-active {
+//   animation-name: shift;
+//   animation-duration: 0.3s;
+//   animation-fill-mode: forwards;
+// }
 
 .button-previous {
   display: none;
-  background-color: rgba(131, 131, 131, 0.5); /* Green */
+  background-color: rgba(131, 131, 131, 0.5);
   border: none;
   color: white;
-  // padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  // display: inline-block;
   font-size: 16px;
-  height: 300px;
-  width: 30px;
+  height: 100%;
+  width: 40px;
   position: absolute;
-  top: 29%;
-  left: 3%;
+  top: 0;
+  left: 0;
   z-index: 20;
+
+  &:hover {
+    background-color: rgba(131, 131, 131, 0.904);
+  }
 }
 
 .button-next {
-  background-color: rgba(131, 131, 131, 0.5); /* Green */
+  background-color: rgba(131, 131, 131, 0.5);
   border: none;
   color: white;
-  // padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  // display: inline-block;
   font-size: 16px;
-  height: 300px;
-  width: 30px;
+  height: 100%;
+  width: 40px;
   position: absolute;
-  top: 29%;
-  right: 3%;
+  top: 0;
+  right: 0;
   z-index: 20;
+
+  &:hover {
+    background-color: rgba(131, 131, 131, 0.904);
+  }
 }
 
 .button-active {
   display: block;
 }
+
+// @keyframes shift {
+//   from {
+//     transform: translateX(0px);
+//   }
+//   to {
+//     transform: translateX(-50px);
+//   }
+// }

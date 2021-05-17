@@ -74,7 +74,11 @@ export class Carousel extends Component {
     });
     console.log(topicDataArray);
     return (
-      <div className="carousel-container">
+      <div
+        className={`carousel-container ${
+          !isMenuActive ? "carousel-active" : ""
+        }`}
+      >
         <button
           className={`button-previous ${!isMenuActive ? "button-active" : ""}`}
           onClick={() => {
