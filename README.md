@@ -13,7 +13,7 @@ The tools I used for this were React, HTML, SCSS and the amazing Slick JS librar
 
 You are presented with a menu bar with a list of predefined topics (grabbed from the API). Clicking on a topic fetches a collection of relevant pictures. 
 You can then scroll through the collection by either clicking on the scroll-arrows or using the right and left arrow keys on your keyboard (This was to mimic the idea of using a remote control for a SmartTV app).
-Once you start scrolling, the menu-bar will be switched to inactive and slide off the screen, and the gallery will stretch to take up the whole screen.
+Once you start scrolling, the menu-bar will be switched to inactive and slide off the screen, and the gallery will stretch to take up the whole screen. When you scroll back to the start of the gallery, the menu will become active again.
  
 ### Areas of development
 * Having finished this project, here are some key areas I feel I’ve developed in:
